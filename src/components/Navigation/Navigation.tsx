@@ -9,7 +9,7 @@ export interface NavigationDataType {
 export function Navigation() {
   // TODO:
   // Fetch navigation settings here, for now it is going to be
-  // hardcoded of the navigation items to be rendered in our HeaderLayout.
+  // hardcoded navigation items to be rendered in our HeaderLayout.
 
   const navigationData: NavigationDataType = {
     navigationItems: [

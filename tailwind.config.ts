@@ -21,7 +21,8 @@ const config: Config = {
       },
       colors: {
         'clever-green': '#003732',
-        'clever-green-tint': '#CCD7D6',
+        'clever-green-tint': '#F2F5F5',
+        'clever-green-tint-80': '#335F5B',
       },
     },
     fontFamily: {
