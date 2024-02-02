@@ -16,6 +16,7 @@ const config: Config = {
         'navigation-height': 'var(--navigation-height)',
       },
       zIndex: {
+        'hero-overlay': '1',
         navigation: '50',
       },
       colors: {

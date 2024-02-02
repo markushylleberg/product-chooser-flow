@@ -1,14 +1,32 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 
+import Icon from '@/components/shared/Icon/Icon'
 import { NavigationDataType } from '@/components/Navigation/Navigation'
 
+import { useWindowScroll } from '@uidotdev/usehooks'
+import { useEffect, useState } from 'react'
+
 export default function NavigationLayout({ navigationItems, contactItem }: NavigationDataType) {
+  const [isUsingWhiteBackground, setIsUsingWhiteBackground] = useState(false)
+
+  const [{ y: scrollYPostiion }] = useWindowScroll()
+
+  useEffect(() => {
+    if (typeof scrollYPostiion == 'number') {
+      const hasScrolled = scrollYPostiion > 0
+      setIsUsingWhiteBackground(hasScrolled)
+    }
+  }, [scrollYPostiion])
+
   return (
-    <nav className="fixed top-0 z-navigation w-full h-navigation-height before:absolute before:w-full before:h-[8rem] before:bg-gradient-to-b from-black/40 before:z-[-1]">
-      <div className="flex justify-between items-center py-6 px-12 text-white">
+    <nav
+      className={`fixed top-0 z-navigation w-full h-navigation-height transition-colors duration-300 ${
+        isUsingWhiteBackground ? 'text-clever-green bg-white' : 'text-white'
+      }`}
+    >
+      <div className="flex justify-center items-start py-6 px-12">
         <ul className="flex space-x-9 w-full">
           {navigationItems.map(({ title, slug }) => {
             return (
@@ -18,23 +36,14 @@ export default function NavigationLayout({ navigationItems, contactItem }: Navig
             )
           })}
         </ul>
-        <div className="min-w-[129px] mx-2.5">
+        <div className="min-w-[129px] h-[24px] mx-2.5 flex items-center justify-center">
           <Link href={'/'}>
-            <Image src="/clever-logo.svg" alt="Clever Logo" width={130} height={24} priority />
+            <Icon name="clever-logo" className="w-[129px] h-[24px] pt-1" />
           </Link>
         </div>
         <div className="justify-end flex w-full">
           <Link className="flex items-center justify-center" href={contactItem.slug}>
-            {contactItem.icon ? (
-              <Image
-                className="mr-1"
-                src={`/${contactItem.icon}.svg`}
-                alt=""
-                width={24}
-                height={24}
-                priority
-              />
-            ) : null}
+            {contactItem.icon ? <Icon name="light-bulb" className="w-[24px] h-[24px]" /> : null}
             {contactItem.title}
           </Link>
         </div>

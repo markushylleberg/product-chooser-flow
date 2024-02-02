@@ -10,4 +10,8 @@
   * {
     @apply antialiased;
   }
+
+  body {
+    @apply bg-clever-green;
+  }
 }
