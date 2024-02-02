@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export function Hero() {
   return (
@@ -38,7 +39,9 @@ export function Hero() {
               Svar på spørgsmålene og find ud af hvilken Clever løsning der passer bedst til dine
               behov
             </p>
-            <button className="mt-8 bg-white text-clever-green px-8 py-2">Tag testen her</button>
+            <Link href="/product-chooser-flow?step=1">
+              <button className="mt-8 bg-white text-clever-green px-8 py-2">Tag testen her</button>
+            </Link>
           </motion.div>
         </div>
       </div>
