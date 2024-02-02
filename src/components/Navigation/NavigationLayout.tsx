@@ -9,7 +9,7 @@ export default function NavigationLayout({ navigationItems, contactItem }: Navig
   return (
     <nav className="fixed top-0 z-navigation w-full h-navigation-height before:absolute before:w-full before:h-[8rem] before:bg-gradient-to-b from-black/40 before:z-[-1]">
       <div className="flex justify-between items-center py-6 px-12 text-white">
-        <ul className="flex space-x-8 w-full">
+        <ul className="flex space-x-9 w-full">
           {navigationItems.map(({ title, slug }) => {
             return (
               <li>

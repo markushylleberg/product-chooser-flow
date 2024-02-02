@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 import { Navigation } from '@/components/Navigation/Navigation'
+import ThemeProvider from '@/components/shared/ThemeProvider/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'Clever | ProduktVælger',
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ThemeProvider />
         <Navigation />
         {children}
       </body>

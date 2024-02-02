@@ -22,6 +22,9 @@ const config: Config = {
         'clever-green': '#003732',
       },
     },
+    fontFamily: {
+      sans: 'var(--font-sans)',
+    },
   },
   plugins: [],
 }

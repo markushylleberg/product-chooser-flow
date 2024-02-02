@@ -5,3 +5,9 @@
 :root {
   --navigation-height: '72px';
 }
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+}
