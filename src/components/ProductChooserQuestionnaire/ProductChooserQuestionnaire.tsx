@@ -76,7 +76,11 @@ export default function ProductChooserQuestionnaire({
             exit={{ opacity: 0, y: 0, transition: { delay: 0.25 } }}
             className="pt-8"
           >
-            <QuestionnaireResultCard userInputData={questionnarieData} data={data} />
+            <QuestionnaireResultCard
+              userInputData={questionnarieData}
+              data={data}
+              onResetFlow={() => setQuestionnareData([])}
+            />
           </motion.div>
         )}
       </AnimatePresence>

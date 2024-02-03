@@ -2,7 +2,7 @@ import { Hero } from '@/components/Hero/Hero'
 
 export default function Home() {
   return (
-    <main className="relative h-[130vh] overflow-hidden">
+    <main className="relative pb-32 overflow-hidden">
       <Hero />
     </main>
   )

@@ -58,7 +58,7 @@ export default function ProductChooserFlow({ data }: ProductChooserFlowProps) {
           onClick={handleQuestionnaireClick}
         />
       </motion.div>
-      <div className="absolute bottom-10 w-full">
+      <div className="absolute bottom-10 w-full pointer-events-none">
         <AnimatingBackground data={data} activeStep={activeStep} />
       </div>
     </div>

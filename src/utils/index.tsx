@@ -28,7 +28,7 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
       {
         source: 'scene-house-one',
         left: '30vw',
-        exitLeft: '-10vw',
+        exitLeft: '20vw',
         bottom: '-0.1vw',
         delay: 2.7,
         width: '40%',
