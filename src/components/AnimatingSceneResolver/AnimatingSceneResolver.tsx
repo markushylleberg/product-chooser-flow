@@ -30,7 +30,7 @@ export default function AnimatingSceneResolver({ activeStep, data }: AnimatingSc
                         x: element.left,
                         opacity: 1,
                         transition: {
-                          delay: element.delay || 1.5,
+                          delay: element.delay || 1,
                           type: 'spring',
                           duration: 0.75,
                         },

@@ -145,7 +145,7 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
         source: 'scene-bars-line',
         left: '25vw',
         exitLeft: '0vw',
-        delay: 2.5,
+        delay: 2,
         bottom: '5.5vw',
         width: '50%',
       },
