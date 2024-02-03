@@ -7,6 +7,7 @@ import ProductChooserQuestionnaire from '@/components/ProductChooserQuestionnair
 
 import { ProductChooserStepItem } from '@/types'
 import { useState } from 'react'
+import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 
 interface ProductChooserFlowProps {
   data: ProductChooserStepItem[]
@@ -15,8 +16,26 @@ interface ProductChooserFlowProps {
 export default function ProductChooserFlow({ data }: ProductChooserFlowProps) {
   const [activeStep, setActiveStep] = useState<number>(1)
 
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
   const handleQuestionnaireClick = (index: number, value: string) => {
-    setActiveStep(index + 1)
+    const newStep = index + 1
+    setActiveStep(newStep)
+
+    const currentSearchParams = new URLSearchParams(Array.from(searchParams.entries()))
+
+    if (!newStep) {
+      currentSearchParams.delete('step')
+    } else {
+      currentSearchParams.set('step', String(newStep))
+    }
+
+    const stepParam = currentSearchParams.toString()
+    const query = `?${stepParam}`
+
+    router.push(`${pathname}${query}`)
   }
 
   return (
