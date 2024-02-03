@@ -71,7 +71,7 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
         source: 'scene-station',
         left: '-70vw',
         exitLeft: '-100vw',
-        bottom: '-0.6vw',
+        bottom: '-1vw',
         width: '100%',
       },
       {
@@ -115,7 +115,7 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
         source: 'scene-charging-stand-two',
         left: '11vw',
         exitLeft: '0vw',
-        bottom: '0',
+        bottom: '-1px',
         width: '3%',
       },
     ],

@@ -6,23 +6,23 @@ import Link from 'next/link'
 
 export function Hero() {
   return (
-    <div className="relative w-full h-full min-h-[800px] before:absolute before:w-full before:h-[8rem] before:bg-gradient-to-b from-black/40 before:z-hero-overlay">
+    <div className="relative w-full h-full min-h-[800px]">
       <motion.div
-        className="w-full h-screen absolute inset-0"
+        className="w-full h-screen absolute inset-0 before:absolute before:w-full before:h-[8rem] before:bg-gradient-to-b from-black/40 before:z-hero-overlay"
         initial={{ y: -10, opacity: 0 }}
-        transition={{ duration: 0.45, delay: 0.1 }}
-        animate={{ y: -20, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        animate={{ y: 0, opacity: 1 }}
       >
         <Image
           src="/home-image.png"
-          className="object-cover h-[600px] overflow-hidden"
+          className="object-cover h-[600px]"
           alt=""
           fill={true}
           priority
         />
       </motion.div>
-      <div className="relative z-10 h-full top-[calc(45vh+205px)] border-t w-full before:absolute before:top-[-250px] before:bg-gradient-to-t before:via-clever-green/60 before:from-clever-green before:w-full before:h-[250px]">
-        <div className="bg-clever-green pb-20">
+      <div className="relative z-10 h-full top-[68vh] border-t w-full before:absolute before:top-[-250px] before:bg-gradient-to-t before:via-clever-green/60 before:from-clever-green before:w-full before:h-[250px]">
+        <div className="bg-clever-green pb-20 h-[60vh]">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
