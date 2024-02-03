@@ -15,6 +15,7 @@ export default function QuestionnaireButton({
   id,
   text,
   value,
+  answers,
   onClick,
 }: QuestionnarieButtonProps) {
   const [hasAnswered, setHasAnswered] = useState(false)
@@ -24,10 +25,29 @@ export default function QuestionnaireButton({
     onClick(id, value)
   }
 
+  const existingAnswer = answers.find(answer => answer.id === id)
+
+  useEffect(() => {
+    // If the user navigates back to this step, and changes their
+    // answer, we want to set "hasAnswered" to false on previous answer.
+    if (existingAnswer && existingAnswer.answer !== value) {
+      setHasAnswered(false)
+    }
+  }, [existingAnswer])
+
+  useEffect(() => {
+    // Prefill the selected value if the user is navigating
+    // between the steps of the flow.
+    const previousAnswer = answers.find(answer => answer.id === id)?.answer
+    if (previousAnswer === value) {
+      setHasAnswered(true)
+    }
+  }, [])
+
   return (
     <button
       className={`flex items-center space-x-2.5 w-[440px] bg-white py-2 px-4 text-[15px] ${
-        hasAnswered ? 'pointer-events-none' : 'group'
+        hasAnswered ? '' : 'group'
       }`}
       onClick={() => handleAnswerClick(id, value)}
     >

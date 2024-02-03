@@ -6,7 +6,7 @@ import AnimatingBackground from '@/components/AnimatingBackground/AnimatingBackg
 import ProductChooserQuestionnaire from '@/components/ProductChooserQuestionnaire/ProductChooserQuestionnaire'
 
 import { ProductChooserStepItem } from '@/types'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 
 interface ProductChooserFlowProps {
@@ -22,8 +22,6 @@ export default function ProductChooserFlow({ data }: ProductChooserFlowProps) {
 
   const handleQuestionnaireClick = (index: number, value: string) => {
     const newStep = index + 1
-    setActiveStep(newStep)
-
     const currentSearchParams = new URLSearchParams(Array.from(searchParams.entries()))
 
     if (!newStep) {
@@ -38,8 +36,16 @@ export default function ProductChooserFlow({ data }: ProductChooserFlowProps) {
     router.push(`${pathname}${query}`)
   }
 
+  useEffect(() => {
+    const newStep = searchParams.get('step')
+
+    if (newStep) {
+      setActiveStep(Number(newStep))
+    }
+  }, [searchParams])
+
   return (
-    <div className="relative h-screen w-full pt-60">
+    <div className="relative h-screen w-full pt-40">
       <motion.div
         animate={{ y: 0, opacity: 1 }}
         initial={{ y: 20, opacity: 0 }}

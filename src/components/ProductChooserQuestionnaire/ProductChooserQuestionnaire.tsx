@@ -18,7 +18,18 @@ export default function ProductChooserQuestionnaire({
 
   const handleQuestionnaireClick = (step: number, value: string) => {
     const answer = { id: step, answer: value }
-    setQuestionnareData(existitingAnswers => [...existitingAnswers, answer])
+
+    const hasPreviouslyAnswered = questionnarieData.some(answer => answer.id === step)
+
+    if (hasPreviouslyAnswered) {
+      const previousAnswerIndex = questionnarieData.findIndex(answer => answer.id === step)
+      const newAnswers = questionnarieData
+      newAnswers[previousAnswerIndex] = answer
+      setQuestionnareData(newAnswers)
+    } else {
+      setQuestionnareData(existitingAnswers => [...existitingAnswers, answer])
+    }
+
     onClick(step, value)
   }
 
@@ -26,12 +37,12 @@ export default function ProductChooserQuestionnaire({
     <div className="relative">
       {data.map((item, index) => {
         return (
-          <AnimatePresence>
+          <AnimatePresence key={index}>
             {activeStep === item.id && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0, transition: { delay: item.id === 1 ? 0 : 1.75 } }}
-                exit={{ opacity: 0, y: 0, transition: { delay: 0.75 } }}
+                animate={{ opacity: 1, y: 0, transition: { delay: 0.75 } }}
+                exit={{ opacity: 0, y: 0, transition: { delay: 0.5 } }}
                 className="absolute text-center"
                 key={index}
               >
@@ -39,7 +50,7 @@ export default function ProductChooserQuestionnaire({
                 <ul className="mt-8 space-y-2">
                   {item.answers.map(({ text, value }, index) => {
                     return (
-                      <li>
+                      <li key={index}>
                         <QuestionnaireButton
                           id={item.id}
                           text={text}
