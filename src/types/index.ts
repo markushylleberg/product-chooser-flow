@@ -12,3 +12,8 @@ export interface ProductChooserStepItem {
     value: string
   }[]
 }
+
+export interface QuestionnarieAnswer {
+  id: number
+  answer: string
+}

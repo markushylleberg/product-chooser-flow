@@ -15,7 +15,7 @@ interface ProductChooserFlowProps {
 export default function ProductChooserFlow({ data }: ProductChooserFlowProps) {
   const [activeStep, setActiveStep] = useState<number>(1)
 
-  const handleQuestionnaireClick = (index: number) => {
+  const handleQuestionnaireClick = (index: number, value: string) => {
     setActiveStep(index + 1)
   }
 
@@ -25,7 +25,7 @@ export default function ProductChooserFlow({ data }: ProductChooserFlowProps) {
         animate={{ y: 0, opacity: 1 }}
         initial={{ y: 20, opacity: 0 }}
         transition={{ duration: 1.5, delay: 1.5, type: 'spring' }}
-        className="w-full h-[200px] max-w-[440px] mx-auto"
+        className="w-full h-[200px] max-w-[440px] mx-auto flex flex-col justify-start"
       >
         <ProductChooserQuestionnaire
           data={data}

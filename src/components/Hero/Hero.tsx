@@ -23,7 +23,7 @@ export function Hero() {
       </motion.div>
       {/* We want to position the text content on top of the image, and move
           it 45% down the screen + space for the transparent/green gradient */}
-      <div className="absolute h-[600px] top-[calc(45vh+205px)] border-t w-full before:absolute before:top-[-250px] before:bg-gradient-to-t before:from-clever-green before:w-full before:h-[250px]">
+      <div className="absolute h-[600px] top-[calc(45vh+205px)] border-t w-full before:absolute before:top-[-250px] before:bg-gradient-to-t before:via-clever-green/60 before:from-clever-green before:w-full before:h-[250px]">
         <div className="h-[400px] bg-clever-green">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
