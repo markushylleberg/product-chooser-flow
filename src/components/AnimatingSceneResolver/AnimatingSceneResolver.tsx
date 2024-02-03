@@ -12,7 +12,7 @@ export default function AnimatingSceneResolver({ activeStep, data }: AnimatingSc
     <div className="h-[40vh] w-full">
       {data.map((step, stepIndex) => {
         return (
-          <AnimatePresence>
+          <AnimatePresence key={stepIndex}>
             {activeStep === step.id && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -25,6 +25,7 @@ export default function AnimatingSceneResolver({ activeStep, data }: AnimatingSc
                 {step.backgroundElements.map((element, index) => {
                   return (
                     <motion.div
+                      key={index}
                       initial={{ x: element.exitLeft, opacity: 0 }}
                       animate={{
                         x: element.left,

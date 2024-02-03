@@ -1,6 +1,7 @@
 import ProductChooserFlow from '@/components/ProductChooserFlow/ProductChooserFlow'
 import { ProductChooserStepItem } from '@/types'
 import { ProductChooseMockData } from '@/utils'
+import { Suspense } from 'react'
 
 export default function Home() {
   // TODO:
@@ -11,7 +12,9 @@ export default function Home() {
   return (
     <main className="relative h-screen overflow-hidden">
       <div className="bg-clever-green-tint h-full w-full">
-        <ProductChooserFlow data={mockFlowData} />
+        <Suspense>
+          <ProductChooserFlow data={mockFlowData} />
+        </Suspense>
       </div>
     </main>
   )

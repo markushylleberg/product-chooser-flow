@@ -54,9 +54,9 @@ export default function NavigationLayout({ navigationItems, contactItem }: Navig
     >
       <div className="flex justify-center items-start py-6 px-12">
         <ul className="flex space-x-9 w-full">
-          {navigationItems.map(({ title, slug }) => {
+          {navigationItems.map(({ title, slug }, index) => {
             return (
-              <li>
+              <li key={index}>
                 <Link href={slug}>{title}</Link>
               </li>
             )
