@@ -1,7 +1,8 @@
-import { ProductChooserStepItem, QuestionnarieAnswer } from '@/types'
-import { AnimatePresence, motion } from 'framer-motion'
-import QuestionnaireButton from '../QuestionnaireButton/QuestionnaireButton'
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ProductChooserStepItem, QuestionnarieAnswer } from '@/types'
+import QuestionnaireButton from '@/components/QuestionnaireButton/QuestionnaireButton'
+import QuestionnaireResultCard from '@/components/QuestionnaireResultCard/QuestionnaireResultCard'
 
 interface ProductChooserQuestionnaire {
   data: ProductChooserStepItem[]
@@ -67,6 +68,18 @@ export default function ProductChooserQuestionnaire({
           </AnimatePresence>
         )
       })}
+      <AnimatePresence>
+        {activeStep === data.length + 1 && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: 2 } }}
+            exit={{ opacity: 0, y: 0, transition: { delay: 0.25 } }}
+            className="pt-20"
+          >
+            <QuestionnaireResultCard userInputData={questionnarieData} data={data} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

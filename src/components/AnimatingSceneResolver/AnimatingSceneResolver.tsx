@@ -30,7 +30,7 @@ export default function AnimatingSceneResolver({ activeStep, data }: AnimatingSc
                         x: element.left,
                         opacity: 1,
                         transition: {
-                          delay: stepIndex === 0 ? 2 : element.delay || 1.5,
+                          delay: element.delay || 1.5,
                           type: 'spring',
                           duration: 0.75,
                         },
@@ -40,7 +40,7 @@ export default function AnimatingSceneResolver({ activeStep, data }: AnimatingSc
                         opacity: 0,
                         transition: { duration: 0.8, type: 'spring' },
                       }}
-                      className="absolute pointer-events-none w-screen"
+                      className="absolute pointer-events-none w-screen flex"
                       style={{
                         bottom: element.bottom,
                         width: element.width,
