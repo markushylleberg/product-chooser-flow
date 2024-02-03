@@ -16,6 +16,22 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
         value: 'nej',
       },
     ],
+    backgroundElements: [
+      {
+        source: 'scene-hedge',
+        left: '10vw',
+        exitLeft: '0vw',
+        bottom: '-0.5rem',
+        width: '80%',
+      },
+      {
+        source: 'scene-house-one',
+        left: '8vw',
+        exitLeft: '0vw',
+        bottom: '-1.5rem',
+        width: '80%',
+      },
+    ],
   },
   {
     id: 2,
@@ -34,6 +50,36 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
         value: 'ude-og-hjemme',
       },
     ],
+    backgroundElements: [
+      {
+        source: 'scene-hedge',
+        left: '12.5vw',
+        exitLeft: '0vw',
+        bottom: '-0.5rem',
+        width: '80%',
+      },
+      {
+        source: 'scene-house-two',
+        left: '85vw',
+        exitLeft: '100vw',
+        bottom: '-0.5rem',
+        width: '15%',
+      },
+      {
+        source: 'scene-station',
+        left: '-70vw',
+        exitLeft: '-100vw',
+        bottom: '-1.3rem',
+        width: '100%',
+      },
+      {
+        source: 'scene-charging-stand',
+        left: '11vw',
+        exitLeft: '0vw',
+        bottom: '-1.4rem',
+        width: '5%',
+      },
+    ],
   },
   {
     id: 3,
@@ -48,6 +94,7 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
         value: 'nej',
       },
     ],
+    backgroundElements: [],
   },
   {
     id: 4,
@@ -62,5 +109,6 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
         value: 'forbrugsafregnet',
       },
     ],
+    backgroundElements: [],
   },
 ]

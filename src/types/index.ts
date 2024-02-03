@@ -11,6 +11,13 @@ export interface ProductChooserStepItem {
     text: string
     value: string
   }[]
+  backgroundElements: {
+    source: string
+    left: string
+    exitLeft: string
+    bottom: string
+    width: string
+  }[]
 }
 
 export interface QuestionnarieAnswer {

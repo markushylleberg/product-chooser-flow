@@ -1,6 +1,6 @@
 import { ProductChooserStepItem } from '@/types'
-import AnimatingGroundLine from '../AnimatingGroundLine/AnimatingGroundLine'
-import { useState } from 'react'
+import AnimatingGroundLine from '@/components/AnimatingGroundLine/AnimatingGroundLine'
+import AnimatingSceneResolver from '@/components/AnimatingSceneResolver/AnimatingSceneResolver'
 
 interface AnimatingBackgroundProps {
   data: ProductChooserStepItem[]
@@ -8,10 +8,9 @@ interface AnimatingBackgroundProps {
 }
 
 export default function AnimatingBackground({ data, activeStep }: AnimatingBackgroundProps) {
-  const [isGroundLineEnabled, setIsGroundLineEnabled] = useState(true)
-
   return (
     <div>
+      <AnimatingSceneResolver activeStep={activeStep} data={data} />
       <AnimatingGroundLine enabled={activeStep < 5 ? true : false} />
     </div>
   )
