@@ -17,6 +17,7 @@ export interface ProductChooserStepItem {
     exitLeft: string
     bottom: string
     width: string
+    delay?: number
   }[]
 }
 

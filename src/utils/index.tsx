@@ -20,14 +20,14 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
       {
         source: 'scene-hedge',
         left: '10vw',
-        exitLeft: '0vw',
+        exitLeft: '10vw',
         bottom: '-0.5rem',
         width: '80%',
       },
       {
         source: 'scene-house-one',
         left: '8vw',
-        exitLeft: '0vw',
+        exitLeft: '8vw',
         bottom: '-1.5rem',
         width: '80%',
       },
@@ -54,7 +54,7 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
       {
         source: 'scene-hedge',
         left: '12.5vw',
-        exitLeft: '0vw',
+        exitLeft: '12.5vw',
         bottom: '-0.5rem',
         width: '80%',
       },
@@ -94,7 +94,29 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
         value: 'nej',
       },
     ],
-    backgroundElements: [],
+    backgroundElements: [
+      {
+        source: 'scene-hedge',
+        left: '12.5vw',
+        exitLeft: '12.5vw',
+        bottom: '-0.5rem',
+        width: '80%',
+      },
+      {
+        source: 'scene-grid',
+        left: '80vw',
+        exitLeft: '100vw',
+        bottom: '-0.5rem',
+        width: '20%',
+      },
+      {
+        source: 'scene-charging-stand-two',
+        left: '11vw',
+        exitLeft: '0vw',
+        bottom: '-0.5rem',
+        width: '3%',
+      },
+    ],
   },
   {
     id: 4,
@@ -109,6 +131,22 @@ export const ProductChooseMockData: ProductChooserStepItem[] = [
         value: 'forbrugsafregnet',
       },
     ],
-    backgroundElements: [],
+    backgroundElements: [
+      {
+        source: 'scene-bars',
+        left: '30vw',
+        exitLeft: '30vw',
+        bottom: '-0.5vw',
+        width: '40%',
+      },
+      {
+        source: 'scene-bars-line',
+        left: '25vw',
+        exitLeft: '0vw',
+        delay: 2.5,
+        bottom: '4.95vw',
+        width: '50%',
+      },
+    ],
   },
 ]

@@ -42,7 +42,7 @@ export default function ProductChooserQuestionnaire({
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0, transition: { delay: 0.75 } }}
-                exit={{ opacity: 0, y: 0, transition: { delay: 0.5 } }}
+                exit={{ opacity: 0, y: 0, transition: { delay: 0.25 } }}
                 className="absolute text-center"
                 key={index}
               >

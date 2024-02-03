@@ -15,9 +15,9 @@ export default function AnimatingSceneResolver({ activeStep, data }: AnimatingSc
           <AnimatePresence>
             {activeStep === step.id && (
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.5 } }}
-                exit={{ opacity: 0, x: -50, transition: { duration: 0.8, delay: 0.2 } }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 0.8, delay: 0.5 } }}
+                exit={{ opacity: 0, transition: { duration: 0.8, delay: 0.2 } }}
                 className={`absolute inset-0 ${
                   activeStep === step.id ? 'opacity-100' : 'opacity-0'
                 }`}
@@ -25,12 +25,14 @@ export default function AnimatingSceneResolver({ activeStep, data }: AnimatingSc
                 {step.backgroundElements.map((element, index) => {
                   return (
                     <motion.div
-                      initial={{ x: '10%', opacity: 0 }}
+                      initial={{ x: element.exitLeft, opacity: 0 }}
                       animate={{
                         x: element.left,
                         opacity: 1,
                         transition: {
-                          delay: stepIndex === 0 ? 2 : 0.5,
+                          delay: stepIndex === 0 ? 2 : element.delay || 1.5,
+                          type: 'spring',
+                          duration: 0.75,
                         },
                       }}
                       exit={{
