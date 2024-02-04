@@ -1,17 +1,19 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ProductChooserStepItem, QuestionnarieAnswer } from '@/types'
+import { ProductChooserStepItem, QuestionnarieAnswer, SolutionItem } from '@/types'
 import QuestionnaireButton from '@/components/QuestionnaireButton/QuestionnaireButton'
 import QuestionnaireResultCard from '@/components/QuestionnaireResultCard/QuestionnaireResultCard'
 
 interface ProductChooserQuestionnaire {
-  data: ProductChooserStepItem[]
+  questionsData: ProductChooserStepItem[]
+  solutionsData: SolutionItem[]
   activeStep: number
   onClick: (step: number, value: string) => void
 }
 
 export default function ProductChooserQuestionnaire({
-  data,
+  questionsData,
+  solutionsData,
   activeStep,
   onClick,
 }: ProductChooserQuestionnaire) {
@@ -36,7 +38,7 @@ export default function ProductChooserQuestionnaire({
 
   return (
     <div className="relative px-4">
-      {data.map((item, index) => {
+      {questionsData.map((item, index) => {
         return (
           <AnimatePresence key={index}>
             {activeStep === item.id && (
@@ -68,22 +70,14 @@ export default function ProductChooserQuestionnaire({
           </AnimatePresence>
         )
       })}
-      <AnimatePresence>
-        {activeStep === data.length + 1 && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0, transition: { delay: 2 } }}
-            exit={{ opacity: 0, y: 0, transition: { delay: 0.25 } }}
-            className="pt-8"
-          >
-            <QuestionnaireResultCard
-              userInputData={questionnarieData}
-              data={data}
-              onResetFlow={() => setQuestionnareData([])}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {activeStep === questionsData.length + 1 && (
+        <QuestionnaireResultCard
+          userInputData={questionnarieData}
+          solutionsData={solutionsData}
+          data={questionsData}
+          onResetFlow={() => setQuestionnareData([])}
+        />
+      )}
     </div>
   )
 }

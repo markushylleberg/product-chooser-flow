@@ -4,6 +4,11 @@ export interface NavigationItemType {
   icon: string | null
 }
 
+export interface MockDataPayload {
+  questions: ProductChooserStepItem[]
+  solutions: SolutionItem[]
+}
+
 export interface ProductChooserStepItem {
   id: number
   question: string
@@ -19,6 +24,18 @@ export interface ProductChooserStepItem {
     width: string
     delay?: number
   }[]
+}
+
+export interface SolutionItem {
+  id: number
+  title: string
+  description: string
+  questionnarieMatch: QuestionnaireMatchItem[]
+}
+
+export interface QuestionnaireMatchItem {
+  id: number
+  match: string[]
 }
 
 export interface QuestionnarieAnswer {
