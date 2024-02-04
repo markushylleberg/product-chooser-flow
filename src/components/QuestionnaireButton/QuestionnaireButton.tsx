@@ -46,7 +46,7 @@ export default function QuestionnaireButton({
 
   return (
     <button
-      className={`flex items-center space-x-2.5 w-[440px] bg-white py-2 px-4 text-[15px] ${
+      className={`flex items-center space-x-2.5 w-full lg:w-[440px] bg-white py-2 px-4 text-body ${
         hasAnswered ? '' : 'group'
       }`}
       onClick={() => handleAnswerClick(id, value)}

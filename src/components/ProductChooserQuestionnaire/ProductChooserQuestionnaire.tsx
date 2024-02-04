@@ -35,7 +35,7 @@ export default function ProductChooserQuestionnaire({
   }
 
   return (
-    <div className="relative">
+    <div className="relative px-4">
       {data.map((item, index) => {
         return (
           <AnimatePresence key={index}>
@@ -44,10 +44,10 @@ export default function ProductChooserQuestionnaire({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0, transition: { delay: 0.75 } }}
                 exit={{ opacity: 0, y: 0, transition: { delay: 0.25 } }}
-                className="absolute text-center"
+                className="absolute text-center w-[calc(100%-2rem)] lg:w-auto"
                 key={index}
               >
-                <h3 className="text-[26px] font-light">{item.question}</h3>
+                <h3 className="headline-md-text">{item.question}</h3>
                 <ul className="mt-8 space-y-2">
                   {item.answers.map(({ text, value }, index) => {
                     return (

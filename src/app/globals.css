@@ -14,4 +14,20 @@
   body {
     @apply bg-clever-green;
   }
+
+  .headline-lg-text {
+    @apply text-[36px] lg:text-[52px] font-light;
+  }
+
+  .headline-md-text {
+    @apply text-[20px] lg:text-[26px] font-light;
+  }
+
+  .body-text {
+    @apply text-[15px] font-normal;
+  }
+
+  .label-text {
+    @apply text-[15px] font-semibold;
+  }
 }

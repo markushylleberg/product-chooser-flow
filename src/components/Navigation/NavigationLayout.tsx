@@ -53,7 +53,7 @@ export default function NavigationLayout({ navigationItems, contactItem }: Navig
       className={`fixed top-0 z-navigation w-full h-navigation-height transition-colors duration-300 ${getAppearanceClasses()}`}
     >
       <div className="flex justify-center items-start py-6 px-12">
-        <ul className="flex space-x-9 w-full">
+        <ul className="space-x-9 w-full hidden lg:flex">
           {navigationItems.map(({ title, slug }, index) => {
             return (
               <li key={index}>
@@ -62,12 +62,23 @@ export default function NavigationLayout({ navigationItems, contactItem }: Navig
             )
           })}
         </ul>
+        <button className="flex flex-col lg:hidden absolute left-6 top-7 space-y-1">
+          <span
+            className={`h-[2px] w-6 ${isUsingWhiteBackground ? 'bg-clever-green' : 'bg-white'}`}
+          />
+          <span
+            className={`h-[2px] w-6 ${isUsingWhiteBackground ? 'bg-clever-green' : 'bg-white'}`}
+          />
+          <span
+            className={`h-[2px] w-6 ${isUsingWhiteBackground ? 'bg-clever-green' : 'bg-white'}`}
+          />
+        </button>
         <div className="min-w-[129px] h-[24px] mx-2.5 flex items-center justify-center">
           <Link href={'/'}>
             <Icon name="clever-logo" className="w-[129px] h-[24px] pt-1" />
           </Link>
         </div>
-        <div className="justify-end flex w-full">
+        <div className="justify-end w-full hidden lg:flex">
           <Link className="flex items-center justify-center" href={contactItem.slug}>
             {contactItem.icon ? <Icon name="light-bulb" className="w-[24px] h-[24px]" /> : null}
             {contactItem.title}

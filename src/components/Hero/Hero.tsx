@@ -27,13 +27,13 @@ export function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="flex flex-col items-center text-center pt-4"
+            className="flex flex-col items-center text-center pt-4 px-4"
           >
-            <h1 className="font-semibold text-white text-[15px]">Produktvælger</h1>
-            <p className="mt-2 text-[52px] max-w-[664px] font-light text-white">
+            <h1 className="label-text text-white">Produktvælger</h1>
+            <p className="mt-2 headline-lg-text max-w-[664px] text-white">
               Lad os hjælpe dig med at finde rigtig ladeløsning
             </p>
-            <p className="mt-4 font-normal max-w-[664px] opacity-[0.8] text-white text-[15px]">
+            <p className="mt-4 body-text max-w-[664px] opacity-[0.8] text-white">
               Svar på spørgsmålene og find ud af hvilken Clever løsning der passer bedst til dine
               behov
             </p>

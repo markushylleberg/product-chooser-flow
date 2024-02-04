@@ -9,7 +9,7 @@ export default function Button({ children, style }: ButtonProps) {
   const buttonStyles =
     style === 'primary'
       ? 'border border-clever-green bg-clever-green text-white group-hover:bg-clever-green-tint-80 transition-colors'
-      : 'border border-clever-green text-black'
+      : 'border border-clever-green bg-white text-black'
 
   return <span className={`block py-2 px-8 ${buttonStyles}`}>{children}</span>
 }
