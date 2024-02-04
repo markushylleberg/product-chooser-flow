@@ -45,7 +45,7 @@ export default function ProductChooserFlow({ data }: ProductChooserFlowProps) {
   }, [searchParams])
 
   return (
-    <div className="relative h-screen w-full pt-40">
+    <div className="relative h-[85vh] lg:h-screen w-full pt-40">
       <motion.div
         animate={{ y: 0, opacity: 1 }}
         initial={{ y: 20, opacity: 0 }}
