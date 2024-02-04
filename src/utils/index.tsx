@@ -23,7 +23,7 @@ export const ProductChooserMockData: MockDataPayload = {
           left: '10vw',
           exitLeft: '10vw',
           bottom: '0',
-          delay: 2,
+          delay: 1.1,
           width: '80%',
         },
         {
@@ -31,7 +31,7 @@ export const ProductChooserMockData: MockDataPayload = {
           left: '30vw',
           exitLeft: '20vw',
           bottom: '-0.1vw',
-          delay: 2.7,
+          delay: 1.3,
           width: '40%',
         },
       ],
@@ -169,7 +169,8 @@ export const ProductChooserMockData: MockDataPayload = {
     {
       id: 2,
       title: 'Clever Box',
-      description: 'Vælg Clever Box, hvis du vil eje ladeboksen og betale for det, du lader.',
+      description:
+        'Til dig der lader derhjemme og ønsker en intelligent Clever-ladeboks i din indkørsel samt rabat på vores ladenetværk.',
       questionnarieMatch: [
         { id: 1, match: ['ja'] },
         { id: 2, match: ['hjemme'] },
@@ -180,7 +181,8 @@ export const ProductChooserMockData: MockDataPayload = {
     {
       id: 2,
       title: 'Clever Go',
-      description: 'Betal for det du lader',
+      description:
+        'Til dig der ønsker adgang til vores ladenetværk og betaling for den strøm du bruger.',
       questionnarieMatch: [
         { id: 1, match: ['nej'] },
         { id: 2, match: ['farten'] },

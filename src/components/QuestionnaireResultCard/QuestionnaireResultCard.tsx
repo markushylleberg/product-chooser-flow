@@ -30,7 +30,7 @@ export default function QuestionnaireResultCard({
 
     setTimeout(() => {
       setIsLoading(false)
-    }, 3000)
+    }, 1500)
   }, [])
 
   return (
@@ -43,7 +43,7 @@ export default function QuestionnaireResultCard({
             animate={{ opacity: 1, transition: { delay: 0.5 } }}
             exit={{ opacity: 0 }}
           >
-            <span className="label-text">Søger...</span>
+            <span className="label-text">Finder ladeløsning...</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -77,7 +77,7 @@ export default function QuestionnaireResultCard({
               <Link href="/" className="group">
                 <Button style="primary">
                   <span className="flex items-center space-x-2 max-lg:justify-center">
-                    <span className="body-text">Se Clever One</span>
+                    <span className="body-text">Se {solution.title}</span>
                     <Icon
                       name="arrow-link"
                       className="w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300m max-lg:hidden"
