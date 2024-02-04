@@ -74,7 +74,6 @@ export default function ProductChooserQuestionnaire({
         <QuestionnaireResultCard
           userInputData={questionnarieData}
           solutionsData={solutionsData}
-          data={questionsData}
           onResetFlow={() => setQuestionnareData([])}
         />
       )}

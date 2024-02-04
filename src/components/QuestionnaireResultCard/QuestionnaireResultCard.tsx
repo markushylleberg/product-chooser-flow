@@ -4,23 +4,30 @@ import Icon from '@/components/shared/Icon/Icon'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { findBestMatchingSolution } from '@/utils/find-solution'
 
 interface QuestionnaireResultCardProps {
   userInputData: QuestionnarieAnswer[]
   solutionsData: SolutionItem[]
-  data: ProductChooserStepItem[]
   onResetFlow: () => void
 }
 
 export default function QuestionnaireResultCard({
   userInputData,
   solutionsData,
-  data,
   onResetFlow,
 }: QuestionnaireResultCardProps) {
   const [isLoading, setIsLoading] = useState(true)
+  const [solution, setSolution] = useState<SolutionItem | null>(null)
 
   useEffect(() => {
+    const bestMatchingSolution = findBestMatchingSolution({
+      userInput: userInputData,
+      solutions: solutionsData,
+    })
+
+    setSolution(bestMatchingSolution)
+
     setTimeout(() => {
       setIsLoading(false)
     }, 3000)
@@ -41,7 +48,7 @@ export default function QuestionnaireResultCard({
         )}
       </AnimatePresence>
       <AnimatePresence mode="popLayout">
-        {!isLoading && (
+        {!isLoading && solution && (
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 10 }}
@@ -49,11 +56,8 @@ export default function QuestionnaireResultCard({
             className="flex flex-col items-center justify-center"
           >
             <span className="label-text">Vi vil anbefale</span>
-            <h1 className="mt-2 headline-lg-text">Clever One</h1>
-            <p className="mt-4 opacity-80 body-text text-center">
-              Start dagen med fuld energi fra Clever-ladeboksen hjemme, og lad frit på Danmarks
-              største ladenetværk.
-            </p>
+            <h1 className="mt-2 headline-lg-text">{solution.title}</h1>
+            <p className="mt-4 opacity-80 body-text text-center">{solution.description}</p>
             <div className="mt-10 flex flex-col lg:flex-row max-lg:space-y-2 lg:space-x-2">
               <Link
                 href="/product-chooser-flow?step=1"

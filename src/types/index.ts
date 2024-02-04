@@ -33,6 +33,10 @@ export interface SolutionItem {
   questionnarieMatch: QuestionnaireMatchItem[]
 }
 
+export type SolutionItemWithMatch = SolutionItem & {
+  matches: number
+}
+
 export interface QuestionnaireMatchItem {
   id: number
   match: string[]
